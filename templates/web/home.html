@@ -1,0 +1,182 @@
+{% extends "web/base.html" %}
+
+{% block title %}
+SENSE Terapi – Duyu Bütünləmə və Uşaq İnkişaf Dəstəyi
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap hero-inner">
+    <h1 id="hero-title">SENSE Terapi Mərkəzi</h1>
+    <p class="hero-text">
+      Duyu bütünləmə, uşaq inkişafı və psixoloji dəstək sahəsində
+      elmi əsaslı və individual yanaşma.
+    </p>
+
+    <div class="cta-row">
+      <a href="#services" class="btn btn-primary">Xidmətlər</a>
+
+      {# HERO: tek numara kullanmak istersen SiteContact burada kalabilir #}
+      {% if site_contact and site_contact.whatsapp_number %}
+        <a href="https://wa.me/{{ site_contact.whatsapp_number }}"
+           target="_blank" rel="noopener"
+           class="btn">
+          WhatsApp
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section" aria-labelledby="services-title">
+  <div class="wrap">
+    <h2 id="services-title">Xidmətlərimiz</h2>
+
+    {% if services %}
+      <div class="service-grid">
+        {% for s in services %}
+          <article class="service-card">
+            <h3>{{ s.name }}</h3>
+
+            {% if s.short_description %}
+              <p class="muted">{{ s.short_description }}</p>
+            {% endif %}
+
+            {% if s.description %}
+              <details>
+                <summary>Ətraflı məlumat</summary>
+                <div class="service-detail">
+                  <p>{{ s.description }}</p>
+                </div>
+              </details>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="muted center">Xidmət məlumatları tezliklə əlavə ediləcək.</p>
+    {% endif %}
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="section muted-bg" aria-labelledby="team-title">
+  <div class="wrap">
+    <h2 id="team-title">Mütəxəssislərimiz</h2>
+
+    {% if team %}
+      <div class="team-grid">
+        {% for m in team %}
+          <article class="team-card">
+            <div class="team-photo">
+              {% if m.photo %}
+                <img src="{{ m.photo.url }}" alt="{{ m.full_name }}" loading="lazy">
+              {% else %}
+                <div class="team-placeholder" aria-hidden="true"></div>
+              {% endif %}
+            </div>
+
+            <div class="team-body">
+              <h3>{{ m.full_name }}</h3>
+
+              {% if m.title %}
+                <p class="muted"><strong>{{ m.title }}</strong></p>
+              {% endif %}
+
+              {% if m.branch %}
+                <p class="muted">{{ m.branch.name }}</p>
+              {% endif %}
+
+              {% if m.bio %}
+                <p class="team-bio">{{ m.bio }}</p>
+              {% endif %}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="muted center">Mütəxəssis məlumatları tezliklə əlavə ediləcək.</p>
+    {% endif %}
+  </div>
+</section>
+
+<!-- BRANCHES (Branch bazlı WhatsApp + foto) -->
+<section id="branches" class="section" aria-labelledby="branches-title">
+  <div class="wrap">
+    <h2 id="branches-title">Filiallarımız</h2>
+
+    {% if branches %}
+      <div class="cards">
+        {% for b in branches %}
+          <article class="card">
+            {# Foto: kart içinde, küçük ve daha az boşluk #}
+            {% if b.photo %}
+              <div class="branch-photo">
+                <img src="{{ b.photo.url }}" alt="{{ b.name }}" loading="lazy">
+              </div>
+            {% endif %}
+
+            <h3 class="card-title">{{ b.name }}</h3>
+
+            {% if b.address %}
+              <p class="muted">{{ b.address }}</p>
+            {% endif %}
+
+            {% if b.working_hours %}
+              <p><strong>İş saatları:</strong> {{ b.working_hours }}</p>
+            {% endif %}
+
+            <div class="card-actions">
+              {# SADECE WhatsApp: telefon yok #}
+              {% if b.whatsapp %}
+                <a href="https://wa.me/{{ b.whatsapp }}"
+                   target="_blank" rel="noopener"
+                   class="btn btn-primary">
+                  WhatsApp
+                </a>
+              {% else %}
+                <span class="muted">WhatsApp nömrəsi əlavə edilməyib.</span>
+              {% endif %}
+
+              {% if b.map_url %}
+                <a href="{{ b.map_url }}" target="_blank" rel="noopener" class="btn">
+                  Xəritədə bax
+                </a>
+              {% endif %}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="muted center">Filial məlumatları tezliklə əlavə ediləcək.</p>
+    {% endif %}
+  </div>
+</section>
+
+<!-- CONTACT: İstersen bunu da branch seçimine bağlayabiliriz, şimdilik genel bilgi -->
+<section id="contact" class="section muted-bg" aria-labelledby="contact-title">
+  <div class="wrap center">
+    <h2 id="contact-title">Əlaqə</h2>
+    <p>Randevu və suallar üçün bizimlə əlaqə saxlayın.</p>
+
+    {% if site_contact and site_contact.whatsapp_number %}
+      <p class="muted" style="margin-top:10px;">
+        WhatsApp: <strong>+{{ site_contact.whatsapp_number }}</strong>
+      </p>
+      <div class="cta-row" style="margin-top:18px;">
+        <a href="https://wa.me/{{ site_contact.whatsapp_number }}"
+           target="_blank" rel="noopener"
+           class="btn btn-primary">
+          WhatsApp ilə yaz
+        </a>
+      </div>
+    {% else %}
+      <p class="muted" style="margin-top:10px;">WhatsApp məlumatı tezliklə əlavə ediləcək.</p>
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}

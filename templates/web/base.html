@@ -1,0 +1,71 @@
+{% load static %}
+<!doctype html>
+<html lang="az">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}SENSE Terapi{% endblock %}</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{% static 'css/site.css' %}">
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <a class="skip-link" href="#main">Məzmunu keç</a>
+
+  <header class="site-header" role="banner">
+    <div class="wrap header-inner">
+      <a class="brand" href="/" aria-label="SENSE Terapi Ana səhifə">
+        <img src="{% static 'img/logo.png' %}" alt="SENSE Terapi logo" class="brand-logo">
+        <span class="brand-text">
+          <strong>SENSE</strong>
+          <em>Terapi Mərkəzi</em>
+        </span>
+      </a>
+
+      <button
+        class="menu-btn"
+        type="button"
+        aria-controls="primary-nav"
+        aria-expanded="false"
+        aria-label="Menyunu aç/bağla">
+        <span aria-hidden="true">☰</span>
+      </button>
+
+      <nav id="primary-nav" class="nav" aria-label="Əsas naviqasiya">
+        <a href="/" {% if request.path == "/" %}aria-current="page"{% endif %}>Ana səhifə</a>
+        <a href="#services">Xidmətlər</a>
+        <a href="#team">Mütəxəssislər</a>
+        <a href="#branches">Filiallar</a>
+        <a href="#contact">Əlaqə</a>
+      </nav>
+
+      <div class="top-cta" aria-label="Sürətli əlaqə">
+        <a class="chip" href="#contact" aria-label="Əlaqə bölməsinə keç">Əlaqə</a>
+        <a class="chip chip-primary" href="#branches" aria-label="Filiallar bölməsinə keç">
+          Filial seç
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="wrap footer-inner">
+      <small>© {{ now|date:"Y" }} SENSE Terapi</small>
+      <div class="footer-links" aria-label="Sosial linklər">
+        <a href="https://www.instagram.com/senseterapi.az/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{% static 'js/site.js' %}" defer></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>
