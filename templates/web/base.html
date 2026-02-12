@@ -65,16 +65,14 @@
     </div>
   </footer>
 
-  {# Floating Online müayinə button #}
+  {# FIXED Online müayinə button (global) #}
   {% if site_contact and site_contact.whatsapp_number %}
-  <a
-    class="float-consult"
-    href="https://wa.me/{{ site_contact.whatsapp_number }}"
-    target="_blank"
-    rel="noopener"
-    aria-label="Online müayinə üçün WhatsApp">
-    Online müayinə
-  </a>
+    <a class="fab-online"
+       href="https://wa.me/{{ site_contact.whatsapp_number }}"
+       target="_blank" rel="noopener"
+       aria-label="Online müayinə (WhatsApp)">
+      Online<br>müayinə
+    </a>
   {% endif %}
 
   <script src="{% static 'js/site.js' %}" defer></script>
