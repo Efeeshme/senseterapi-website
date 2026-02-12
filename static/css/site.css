@@ -630,3 +630,52 @@ img{ max-width:100%; display:block; }
   width:100%;
   height:100%;
 }
+
+
+
+
+/* Floating "Online müayinə" button */
+.float-consult{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9999;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 62px;
+  height: 62px;
+  padding: 10px;
+
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--g-600), var(--g-400));
+  color: var(--w);
+
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 11px;
+  line-height: 1.05;
+  text-align: center;
+
+  border: 1px solid rgba(255,255,255,.25);
+  box-shadow: var(--shadow-2);
+
+  transition: transform var(--t-fast), box-shadow var(--t-fast);
+}
+
+.float-consult:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(0,0,0,.14);
+}
+
+@media (max-width: 480px){
+  .float-consult{
+    right: 14px;
+    bottom: 14px;
+    width: 58px;
+    height: 58px;
+    font-size: 10.5px;
+  }
+}
