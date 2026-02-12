@@ -167,7 +167,7 @@ SENSE Terapi – Duyu Bütünləmə və Uşaq İnkişaf Dəstəyi
         WhatsApp: <strong>+{{ site_contact.whatsapp_number }}</strong>
       </p>
 
-      <div class="cta-row" style="margin-top:18px;">
+      <div class="contact-actions" style="margin-top:18px;">
         <a href="https://wa.me/{{ site_contact.whatsapp_number }}"
            target="_blank" rel="noopener"
            class="btn btn-primary">
@@ -179,10 +179,21 @@ SENSE Terapi – Duyu Bütünləmə və Uşaq İnkişaf Dəstəyi
           Mail ilə yaz
         </a>
       </div>
+
+      <!-- Online müayinə: WhatsApp'a yönlendirir, fixed DEĞİL -->
+      <div class="online-row">
+        <a href="https://wa.me/{{ site_contact.whatsapp_number }}"
+           target="_blank" rel="noopener"
+           class="online-pill"
+           aria-label="Online müayinə üçün WhatsApp-a keç">
+          Online müayinə
+        </a>
+      </div>
+
     {% else %}
       <p class="muted" style="margin-top:10px;">WhatsApp məlumatı tezliklə əlavə ediləcək.</p>
 
-      <div class="cta-row" style="margin-top:18px;">
+      <div class="contact-actions" style="margin-top:18px;">
         <a href="mailto:Contact@senseterapi.az"
            class="btn btn-primary">
           Mail ilə yaz

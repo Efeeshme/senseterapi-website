@@ -636,44 +636,40 @@ img{ max-width:100%; display:block; }
 
 
 
-/* Fixed "Online müayinə" button */
-.fab-online{
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 9999;
 
-  width: 76px;
-  height: 76px;
-  border-radius: 999px;
-
+/* Contact action row + Online müayinə button (NOT fixed) */
+.contact-actions{
   display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.online-row{
+  display:flex;
+  justify-content:center;
+  margin-top:16px;
+}
+
+.online-pill{
+  display:inline-flex;
   align-items:center;
   justify-content:center;
-  text-align:center;
-
+  padding:12px 18px;
+  border-radius:999px;
   font-family:'Outfit', sans-serif;
   font-weight:800;
-  font-size:12.5px;
-  line-height:1.05;
+  font-size:14px;
+  letter-spacing:.01em;
 
   background: linear-gradient(135deg, var(--g-600), var(--g-400));
-  color: var(--w);
-  border: 1px solid rgba(255,255,255,.22);
-  box-shadow: 0 10px 26px rgba(0,0,0,.16);
+  color:var(--w);
+  border:1px solid transparent;
+  box-shadow:var(--shadow-1);
+  transition: transform var(--t-fast), box-shadow var(--t-fast);
 }
 
-.fab-online:hover{
+.online-pill:hover{
   transform: translateY(-2px);
-  box-shadow: 0 14px 34px rgba(0,0,0,.20);
-}
-
-@media (max-width:480px){
-  .fab-online{
-    width: 68px;
-    height: 68px;
-    right: 14px;
-    bottom: 14px;
-    font-size: 12px;
-  }
+  box-shadow:var(--shadow-2);
 }
