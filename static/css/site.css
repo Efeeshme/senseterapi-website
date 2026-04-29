@@ -727,3 +727,22 @@ img{ max-width:100%; display:block; }
 }
 
 /* fab-online artık base.html'den çıkarıldı; eski stiller varsa zararsız kalır */
+
+/* ===== Novella chip override - daha cazip renk ===== */
+.chip-novella{
+  background: linear-gradient(135deg, #ec4899, #8b5cf6, #f59e0b);
+  background-size: 200% 200%;
+  animation: novella-shimmer 4s ease-in-out infinite, novella-pulse 2.4s ease-in-out infinite;
+  box-shadow: 0 4px 16px rgba(236, 72, 153, .4);
+  font-weight: 800;
+}
+
+.chip-novella:hover{
+  box-shadow: 0 8px 24px rgba(236, 72, 153, .6);
+  background: linear-gradient(135deg, #f472b6, #a78bfa, #fbbf24);
+}
+
+@keyframes novella-shimmer{
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
