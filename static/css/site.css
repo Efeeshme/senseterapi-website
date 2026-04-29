@@ -673,3 +673,57 @@ img{ max-width:100%; display:block; }
   transform: translateY(-2px);
   box-shadow:var(--shadow-2);
 }
+/* ===== Novella "Sifariş et" chip - dikkat çekici ===== */
+.chip-novella{
+  position: relative;
+  background: linear-gradient(135deg, #c2410c, #f59e0b);
+  color: var(--w);
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, .35);
+  animation: novella-pulse 2.4s ease-in-out infinite;
+}
+
+.chip-novella:hover{
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, .55);
+  color: var(--w);
+  border-color: transparent;
+  animation-play-state: paused;
+}
+
+.chip-novella .chip-emoji{
+  margin-right: 6px;
+  font-size: 15px;
+  display: inline-block;
+}
+
+@keyframes novella-pulse{
+  0%, 100% {
+    box-shadow: 0 4px 14px rgba(245, 158, 11, .35),
+                0 0 0 0 rgba(245, 158, 11, .45);
+  }
+  50% {
+    box-shadow: 0 4px 14px rgba(245, 158, 11, .35),
+                0 0 0 8px rgba(245, 158, 11, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .chip-novella{ animation: none; }
+}
+
+/* Mobile: chip'lerin sıkışmaması için */
+@media (max-width:520px){
+  .top-cta{
+    gap: 6px;
+  }
+  .chip{
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  .chip-novella .chip-emoji{
+    font-size: 14px;
+  }
+}
+
+/* fab-online artık base.html'den çıkarıldı; eski stiller varsa zararsız kalır */

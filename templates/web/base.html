@@ -48,6 +48,13 @@
         <a class="chip chip-primary" href="#branches" aria-label="Filiallar bölməsinə keç">
           Filial seç
         </a>
+        <a class="chip chip-novella"
+           href="https://novella.az"
+           target="_blank" rel="noopener"
+           aria-label="Novella - Sifariş et">
+          <span class="chip-emoji" aria-hidden="true">📚</span>
+          Sifariş et
+        </a>
       </div>
     </div>
   </header>
@@ -64,16 +71,6 @@
       </div>
     </div>
   </footer>
-
-  {# FIXED Online müayinə button (global) #}
-  {% if site_contact and site_contact.whatsapp_number %}
-    <a class="fab-online"
-       href="https://wa.me/{{ site_contact.whatsapp_number }}"
-       target="_blank" rel="noopener"
-       aria-label="Online müayinə (WhatsApp)">
-      Online<br>müayinə
-    </a>
-  {% endif %}
 
   <script src="{% static 'js/site.js' %}" defer></script>
   {% block scripts %}{% endblock %}
