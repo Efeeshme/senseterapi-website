@@ -87,3 +87,21 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 })();
+// Certificate search
+const certSearch = document.getElementById('cert-search');
+const certList = document.getElementById('cert-list');
+const certEmpty = document.getElementById('cert-empty');
+
+if (certSearch && certList) {
+  certSearch.addEventListener('input', () => {
+    const q = certSearch.value.trim().toLowerCase();
+    let visible = 0;
+    certList.querySelectorAll('.cert-item').forEach(item => {
+      const name = item.querySelector('.cert-name').textContent.toLowerCase();
+      const show = name.includes(q);
+      item.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    if (certEmpty) certEmpty.hidden = visible > 0;
+  });
+}
