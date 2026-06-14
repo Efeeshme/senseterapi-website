@@ -10,3 +10,6 @@ def home(request):
         "web/home.html",
         {"branches": branches, "team": team, "services": services},
     )
+
+def certificates(request):
+    return render(request, "web/certificates.html")
