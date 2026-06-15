@@ -13,3 +13,7 @@ def home(request):
 
 def certificates(request):
     return render(request, "web/certificates.html")
+
+
+def certificates(request):
+    return render(request, "web/certificates.html")
